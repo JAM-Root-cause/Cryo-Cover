@@ -71,11 +71,13 @@ void loop() {
 
   float dTdt = deltaT / deltaHours;
 
-  Serial.print("Temperature: ");
-  Serial.println(currentTemp);
+  if (!freezeDetected) {
+    Serial.print("Temperature: ");
+    Serial.println(currentTemp);
 
-  Serial.print("Warming Rate (C/hr): ");
-  Serial.println(dTdt);
+    Serial.print("Warming Rate (C/hr): ");
+    Serial.println(dTdt);
+  }
 
   previousTemp = currentTemp;
 
